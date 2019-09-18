@@ -1,0 +1,234 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void ones(int x)
+{
+    if(x==1)
+        printf("One ");
+    if(x==2)
+        printf("Two ");
+    if(x==3)
+        printf("Three ");
+    if(x==4)
+        printf("Four ");
+    if(x==5)
+        printf("Five ");
+    if(x==6)
+        printf("Six ");
+    if(x==7)
+        printf("Seven ");
+    if(x==8)
+        printf("Eight ");
+    if(x==9)  
+        printf("Nine ");
+}
+void tens(int x)
+{
+    if(x==11)
+        printf("Eleven ");
+    if(x==12)
+        printf("Tweleve ");
+    if(x==13)
+        printf("Thirteen ");
+    if(x==14)
+        printf("Fourteen ");
+    if(x==15)
+        printf("Fifteen ");
+    if(x==16)
+        printf("Sixteen ");
+    if(x==17)
+        printf("Seventeen ");
+              if(x==18)
+               printf("Eighteen ");
+               if(x==19)
+               printf("Nineteen ");
+               }
+               void he(int x)
+               {
+                   if(x==1)
+                       printf("Ten ");
+                   if(x==2)
+                       printf("Twenty ");
+                   if(x==3)
+                       printf("Thirty ");
+                   if(x==4)
+                       printf("Fourty ");
+                   if(x==5) 
+                       printf("Fifty ");
+                   if(x==6)
+                       printf("Sixty ");
+                   if(x==7) 
+                       printf("Seventy ");
+                   if(x==8)
+                       printf("Eighty ");
+                   if(x==9)
+                       printf("Ninety ");
+               
+                       
+               
+                
+}
+void gou(int n)
+{
+    int k=0,i=0,c;
+    int a[10],j;
+    while(n>0)
+    {
+        a[i]=n%10;
+        n=n/10;
+        k++;
+       
+        i++;
+        
+    }
+    for(j=i-1;j>1;j--)
+    {
+        if(k==15&&a[j]!=0)
+        {
+            ones(a[j]);
+            k=k-1;
+            
+                
+        }
+        else if(k==14)
+        {
+            if(a[j]==1)
+            {
+                tens(a[j]*10+a[j-1]);
+                printf("Trilion ");
+                k=k-2;
+                j--;
+                
+            }
+            else{
+                he(a[j]);
+                k=k-1;
+            }
+        }
+        else if(k==13)
+        {
+            ones(a[j]);
+            k=k-1;
+            printf("Trilion");
+            
+        }
+    
+     else   if(k==12&&a[j]!=0)
+        {
+            ones(a[j]);
+         printf("%d",a[j]);
+            printf("Hundred  ");
+            k=k-1;
+    
+        }
+     else if(k==11)
+        {
+         if(a[j]==1)
+         {
+             tens(a[j]*10+a[j-1]);
+             printf("Bilion  ");
+             k=k-2;
+             j--;
+         }
+         else
+         {
+             
+          he(a[j]);
+            k=k-1;
+         }
+        }
+     else   if(k==10)
+        {
+            ones(a[j]);
+            k=k-1;
+            printf("Billion  ");
+        }
+      else  if(k==9&&a[j]!=0)
+        {
+        ones(a[j]);
+            printf("Hundred  ");
+            k=k-1;
+        }
+      else  if(k==8)
+        {
+          if(a[j]==1)
+          {
+              tens(a[j]*10+a[j-1]);
+              printf("Milion ");
+              k=k-2;
+              j--;
+          }
+          else{
+              
+          
+            he(a[j]);
+            k=k-1;
+          }
+        }
+     else   if(k==7)
+        {
+            ones(a[j]);
+            k=k-1;
+            printf("Million  ");
+            
+        }
+      else   if(k==6&&a[j]!=0)
+        {
+            ones(a[j]);
+            printf("Hundred  ");
+            k=k-1;
+            
+        }
+       else if(k==5)
+        {if(a[j]==1)
+        {
+            tens(a[j]*10+a[j-1]);
+            printf("Thousand ");
+            k=k-2;
+            j--;
+        }
+         else{
+            he(a[j]);
+            k=k-1;
+        }}
+        
+        
+       else if(k==3&&a[j]!=0)
+        {    ones(a[j]);
+            printf("Hundred   ");
+            k=k-1;
+        }
+      else  if(k==4)
+        {   ones(a[j]);
+            printf("Thousand   ");
+            k=k-1;
+        }
+        }
+    c=a[1]*10+a[0];
+    
+    if(c<20||c>=10)
+    {if(c==10)
+        he(a[j]);
+        tens(c);
+    }
+    if(c>=20)
+    {
+        he(a[1]);
+        ones(a[0]);
+    }
+    
+    printf("\n");
+}
+    
+
+int main()
+{
+    int a,b,c;
+    scanf("%d%d%d",&a,&b,&c);
+    gou(b);
+    gou(c);
+    
+    
+    return 0;
+}
